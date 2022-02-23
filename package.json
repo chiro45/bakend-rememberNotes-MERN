@@ -1,9 +1,6 @@
 {
   "name": "backend-app",
   "version": "1.0.0",
-  "engines": {
-    "node": "12.11.1"
-    },
   "description": "backend para aplicacion de calendario",
   "main": "index.js",
   "scripts": {
