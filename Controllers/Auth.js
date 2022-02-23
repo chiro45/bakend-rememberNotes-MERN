@@ -11,13 +11,13 @@ const register =  async(req, res =  response)=>{
     const {email ,passwd}= req.body;
 
   try {
-        const USuario =  new Usuario(req.body)
+        const user =  new Usuario(req.body)
          // encriptar contraseña
         const salt = bcrypt.genSaltSync()
-        USuario.passwd =  bcrypt.hashSync(passwd, salt)
+        user.passwd =  bcrypt.hashSync(passwd, salt)
         
         //le decimos que busque el email
-        let usuario = USuario.findOne({email})
+        let usuario = Usuario.findOne({email})
         //si el email existe devuelve un error
         if(!usuario){
             return res.status(400).json({
@@ -26,7 +26,7 @@ const register =  async(req, res =  response)=>{
             })
         }
         //en el caso de que no haya error se guarda en la base
-        await USuario.save()
+        await user.save()
          
    
         //devolvemos el status de creado y todo perfecto
@@ -56,7 +56,7 @@ const login = async(req, res)=>{
     const {email ,passwd}= req.body;
     try {
         //le decimos que busque el mail en la base de datos
-        let usuario = await USUARIO.findOne({email});
+        let usuario = await Usuario.findOne({email})
         //devolvemos un error diciendo que no se encontro => hay que retornar neutro
         if(!usuario){
             return res.status(400).json({

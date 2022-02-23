@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const dbConnection = async()=>{
     try{
         
-        const dbDir= process.env.DB_CNN;
+        const dbDir = process.env.DB_CNN;
         //hacemos la coneccion
         await mongoose.connect(dbDir);
         //devolvemos un mensaje diciendo que esta perfecto
