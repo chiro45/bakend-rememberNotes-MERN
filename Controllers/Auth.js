@@ -3,20 +3,20 @@ const {response} = require('express');
 const bcrypt = require ('bcryptjs');
 
 const { generarJWT } = require('../helpers/jwt');
-const USUARIO = require('../models/USUARIO');
+const Usuario = require('../models/Usuario');
 
 
 const register =  async(req, res =  response)=>{
     const {email ,passwd}= req.body;
 
   try {
-         const Usuario =  new USUARIO(req.body);
+        const Usuario =  new Usuario(req.body);
          // encriptar contraseña
         const salt = bcrypt.genSaltSync()
         Usuario.passwd =  bcrypt.hashSync(passwd, salt)
         
         //le decimos que busque el email
-        let usuario = USUARIO.findOne({email})
+        let usuario = Usuario.findOne({email})
         //si el email existe devuelve un error
         if(!usuario){
             return res.status(400).json({
