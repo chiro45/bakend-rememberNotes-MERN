@@ -20,4 +20,4 @@ const UsuariosSchema = Schema({
 
 
                     //se exporta de esta manera con el metodo del moongose
-module.exports= model('Usuario', UsuariosSchema)
+module.exports = model('Usuario', UsuariosSchema)
