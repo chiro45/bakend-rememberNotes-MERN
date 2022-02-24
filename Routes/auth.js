@@ -21,7 +21,7 @@ router.post('/',[//middlewares
     validarCampos
 
 ],  login)
-//definimos la ruta 
+//definimos la rutaw 
 router.post('/register',[//middlewares
     check('name','El nombre es obligatorio').not().isEmpty(),
     check('email','El email es obligatorio').isEmail(),
