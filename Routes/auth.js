@@ -29,7 +29,7 @@ router.post('/register',[//middlewares
     validarCampos
 
 ], register)
-//definimos la ruta     en este caso solo hay un middlewere 
+//definimos la ruta  2 en este caso solo hay un middlewere 
 router.get('/renew', validarJWT, revalidarToken)
 
 
