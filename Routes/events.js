@@ -3,12 +3,8 @@
     host/api/events
 */
 
-
 const {Router} = require('express');
 const { check } = require('express-validator');
-
-
-
 const { getEventos, crearEvento, actualizarEvento, borrarEvento } = require("../Controllers/events");
 const { isDate } = require('../helpers/isDate');
 const { validarCampos } = require('../middlewares/validar-campos');
